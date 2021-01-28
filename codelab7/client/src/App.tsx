@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Realtime communication with WebRTC</h1>
+
+      <div id="videoCanvas">
+        <video id="camera" autoPlay playsInline></video>
+        <canvas id="photo"></canvas>
+      </div>
+
+      <div id="buttons">
+        <button id="snap">Snap</button><span> then </span><button id="send">Send</button>
+        <span> or </span>
+        <button id="snapAndSend">Snap &amp; Send</button>
+      </div>
+
+      <div id="incoming">
+        <h2>Incoming photos</h2>
+        <div id="trail"></div>
+      </div>
     </div>
   );
 }
