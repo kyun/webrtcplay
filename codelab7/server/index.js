@@ -2,14 +2,20 @@ var os = require('os');
 
 const app = require('express')();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+const io = require('socket.io')(http, {
+  cors: {
+    origin: "https://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  }
 });
 
-http.listen(3000, () => {
-  console.log('listening on *:3000');
+// app.get('/', (req, res) => {
+//   res.sendFile(__dirname + '/index.html');
+// });
+
+http.listen(8080, () => {
+  console.log('listening on *:8080');
 });
 
 io.sockets.on('connection', function(socket) {
